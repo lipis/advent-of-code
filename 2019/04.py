@@ -27,10 +27,9 @@ def validate_part2(password):
         last_char = char
 
     group = False
-    if same:
-        for char in same:
-            if same[char] == 2:
-                group = True
+    for char in same:
+        if same[char] == 2:
+            group = True
 
     return increase and group
 
