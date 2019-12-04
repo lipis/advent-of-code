@@ -37,4 +37,4 @@ for password in range(254032, 789860):
     if validate_part2(password):
         part2 += 1
 
-print part1, part2
+print(part1, part2)

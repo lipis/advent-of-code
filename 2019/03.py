@@ -1,5 +1,3 @@
-import numpy as np
-
 l1 = [
     "R1002",
     "U407",
@@ -681,7 +679,7 @@ def manhatan(point):
     return abs(point[0]) + abs(point[1])
 
 
-part1 = 100000000
+part1 = 1000000000
 intersections = []
 for point1 in range(len(line1) - 1):
     for point2 in range(len(line2) - 1):
@@ -691,8 +689,7 @@ for point1 in range(len(line1) - 1):
         if intersect:
             current = manhatan(intersect)
             if current > 0:
-                if current < part1:
-                    part1 = current
+                part1 = min(part1, current)
                 intersections.append(intersect)
 
 
@@ -715,7 +712,6 @@ part2 = 1000000000
 
 for inter in intersections:
     dist = distance(line1, inter) + distance(line2, inter)
-    if dist < part2:
-        part2 = dist
+    part2 = min(part2, dist)
 
-print part1, part2
+print(part1, part2)
