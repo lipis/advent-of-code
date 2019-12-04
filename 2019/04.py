@@ -1,20 +1,17 @@
 def validate_part1(password):
     same = False
-    increase = True
     last_char = "0"
     for char in str(password):
         if char == last_char:
             same = True
         if last_char > char:
-            increase = False
-            break
+            return False
         last_char = char
-    return same and increase
+    return same
 
 
 def validate_part2(password):
     same = {}
-    increase = True
     last_char = "0"
     for char in str(password):
         if char == last_char:
@@ -22,17 +19,14 @@ def validate_part2(password):
                 same[char] = 1
             same[char] += 1
         if last_char > char:
-            increase = False
-            break
+            return False
         last_char = char
 
-    group = False
     for char in same:
         if same[char] == 2:
-            group = True
-            break
+            return True
 
-    return increase and group
+    return False
 
 
 part1 = 0
