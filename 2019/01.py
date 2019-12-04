@@ -1,5 +1,3 @@
-import math
-
 data = [
     143845,
     86139,
@@ -108,15 +106,14 @@ def fuel(num):
     result = num
     total = 0
     while result >= 2:
-        result = math.floor(result / 3) - 2
+        result = result / 3 - 2
         if result > 0:
             total += result
     return total
 
 
-total = 0
-
+part2 = 0
 for item in data:
-    total += fuel(item)
+    part2 += fuel(item)
 
-print(int(total))
+print(part2)
