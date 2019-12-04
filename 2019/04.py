@@ -30,6 +30,7 @@ def validate_part2(password):
     for char in same:
         if same[char] == 2:
             group = True
+            break
 
     return increase and group
 
