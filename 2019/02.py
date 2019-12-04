@@ -165,5 +165,5 @@ for noun in range(100):
             if code == 2:
                 data[target] = data[index_a] * data[index_b]
         if data[0] == 19690720:
-            print 100 * noun + verb
+            print(100 * noun + verb)
             exit(0)
