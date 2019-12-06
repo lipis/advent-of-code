@@ -931,21 +931,21 @@ start, finish = indirect["YOU"], indirect["SAN"]
 part2 = 9999999999999
 
 
-def shortest1(first, depth=0):
-    if first in indirect:
-        indirect[first][1] = depth
-        shortest1(indirect[first][0], depth + 1)
+def shortest1(point, depth=0):
+    if point in indirect:
+        indirect[point][1] = depth
+        shortest1(indirect[point][0], depth + 1)
 
 
-def shortest2(second, depth=0):
+def shortest2(point, depth=0):
     global part2
-    if second in indirect:
-        if indirect[second][1] > 0:
-            total = depth + indirect[second][1]
+    if point in indirect:
+        if indirect[point][1] > 0:
+            total = depth + indirect[point][1]
             part2 = min(part2, total)
         else:
-            indirect[second][1] = depth
-        shortest2(indirect[second][0], depth + 1)
+            indirect[point][1] = depth
+        shortest2(indirect[point][0], depth + 1)
 
 
 shortest1(start[0])

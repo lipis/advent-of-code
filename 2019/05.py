@@ -719,36 +719,36 @@ while True:
     c = instruction[2]
     b = instruction[1]
     a = instruction[0]
-    if de == '99':
+    if de == "99":
         break
-    elif de == '03':
+    elif de == "03":
         data2[data2[index + 1]] = inpt
         index += 2
-    elif de == '04':
+    elif de == "04":
         print(data2[data2[index + 1]])
         index += 2
     else:
-        x = data2[data2[index + 1]] if c == '0' else data2[index + 1]
-        y = data2[data2[index + 2]] if b == '0' else data2[index + 2]
-        if de == '05':
+        x = data2[data2[index + 1]] if c == "0" else data2[index + 1]
+        y = data2[data2[index + 2]] if b == "0" else data2[index + 2]
+        if de == "05":
             if x != 0:
                 index = y
             else:
                 index += 3
-        elif de == '06':
+        elif de == "06":
             if x == 0:
                 index = y
             else:
                 index += 3
-        elif de == '07':
+        elif de == "07":
             data2[data2[index + 3]] = 1 if x < y else 0
             index += 4
-        elif de == '08':
+        elif de == "08":
             data2[data2[index + 3]] = 1 if x == y else 0
             index += 4
         else:
-            if de == '01':
+            if de == "01":
                 data2[data2[index + 3]] = x + y
-            elif de == '02':
+            elif de == "02":
                 data2[data2[index + 3]] = x * y
             index += 4

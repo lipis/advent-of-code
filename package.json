@@ -1,0 +1,9 @@
+{
+  "license": "MIT",
+  "name": "advent-of-code-lipis",
+  "scripts": {
+    "fix": "black .",
+    "test": "black --check ."
+  },
+  "version": "0.0.1"
+}
