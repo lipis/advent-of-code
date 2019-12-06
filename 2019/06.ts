@@ -931,14 +931,14 @@ const start = indirect["YOU"];
 const finish = indirect["SAN"];
 let part2 = 9999999999999;
 
-const shortest1 = (point: string, depth: number = 0) => {
+const shortest1 = (point: string, depth: number = 0): void => {
   if (point in indirect) {
     indirect[point][1] = depth;
     shortest1(indirect[point][0], depth + 1);
   }
 };
 
-const shortest2 = (point: string, depth: number = 0) => {
+const shortest2 = (point: string, depth: number = 0): void => {
   if (point in indirect) {
     if (indirect[point][1] > 0) {
       const total = depth + indirect[point][1];
