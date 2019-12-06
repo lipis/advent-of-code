@@ -916,7 +916,7 @@ for (let con of data) {
 
 let part1 = 0;
 
-let traverse = (key: string, depth: number): void => {
+const traverse = (key: string, depth: number): void => {
   if (key in direct) {
     for (let con of direct[key]) {
       part1 += depth + 1;
@@ -931,14 +931,14 @@ const start = indirect['YOU'];
 const finish = indirect['SAN'];
 let part2 = 9999999999999;
 
-let shortest1 = (point: string, depth: number = 0) => {
+const shortest1 = (point: string, depth: number = 0) => {
   if (point in indirect) {
     indirect[point][1] = depth;
     shortest1(indirect[point][0], depth + 1);
   }
 };
 
-let shortest2 = (point, depth = 0) => {
+const shortest2 = (point, depth = 0) => {
   if (point in indirect) {
     if (indirect[point][1] > 0) {
       const total = depth + indirect[point][1];
