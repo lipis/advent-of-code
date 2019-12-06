@@ -1,4 +1,4 @@
-const data = [
+const orbits: string[] = [
   "S5F)4L5",
   "7BP)2V1",
   "DHC)KGY",
@@ -899,9 +899,9 @@ const data = [
 let direct = {};
 let indirect = {};
 
-for (let con of data) {
-  const key = con.substr(0, con.indexOf(")"));
-  const value = con.substr(con.indexOf(")") + 1);
+for (let orbit of orbits) {
+  const key = orbit.substr(0, orbit.indexOf(")"));
+  const value = orbit.substr(orbit.indexOf(")") + 1);
 
   if (!(key in direct)) {
     direct[key] = [value];
@@ -918,9 +918,9 @@ let part1 = 0;
 
 const traverse = (key: string, depth: number): void => {
   if (key in direct) {
-    for (let con of direct[key]) {
+    for (let orbit of direct[key]) {
       part1 += depth + 1;
-      traverse(con, depth + 1);
+      traverse(orbit, depth + 1);
     }
   }
 };
@@ -938,7 +938,7 @@ const shortest1 = (point: string, depth: number = 0) => {
   }
 };
 
-const shortest2 = (point, depth = 0) => {
+const shortest2 = (point: string, depth: number = 0) => {
   if (point in indirect) {
     if (indirect[point][1] > 0) {
       const total = depth + indirect[point][1];

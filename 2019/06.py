@@ -1,4 +1,4 @@
-data = [
+orbits = [
     "S5F)4L5",
     "7BP)2V1",
     "DHC)KGY",
@@ -899,9 +899,9 @@ data = [
 direct = {}
 indirect = {}
 
-for con in data:
-    key = con[0 : con.find(")")]
-    value = con[con.find(")") + 1 :]
+for orbit in orbits:
+    key = orbit[0 : orbit.find(")")]
+    value = orbit[orbit.find(")") + 1 :]
 
     if key not in direct:
         direct[key] = [value]
@@ -917,9 +917,9 @@ part1 = 0
 def traverse(key, depth):
     global part1
     if key in direct:
-        for con in direct[key]:
+        for orbit in direct[key]:
             part1 += depth + 1
-            traverse(con, depth + 1)
+            traverse(orbit, depth + 1)
 
 
 traverse("COM", 0)
