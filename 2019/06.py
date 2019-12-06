@@ -920,8 +920,6 @@ def traverse(key, depth):
         for con in direct[key]:
             part1 += depth + 1
             traverse(con, depth + 1)
-    else:
-        pass
 
 
 traverse("COM", 0)
