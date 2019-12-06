@@ -15,7 +15,7 @@
       "black",
       "git add"
     ],
-    "*.{json, ts}": [
+    "*.{json,ts,md}": [
       "prettier --write",
       "git add"
     ]
@@ -25,7 +25,7 @@
     "fix:other": "yarn prettier --write",
     "fix:py": "black .",
     "fix": "yarn fix:py && yarn fix:other",
-    "prettier": "prettier \"**/*.{json,ts}\"",
+    "prettier": "prettier \"**/*.{json,ts,md}\"",
     "test:other": "yarn prettier --list-different",
     "test:py": "black --check .",
     "test": "yarn test:other && yarn test:py"
