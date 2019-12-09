@@ -27,7 +27,7 @@ for index, pixel in enumerate(data):
         count1 = 0
         count2 = 0
 
-print (part1)
+print(part1)
 
 image = [2] * total
 
@@ -41,8 +41,8 @@ for index, pixel in enumerate(data):
 
 for index, pixel in enumerate(image):
     if index % wide == 0:
-        print
-    if pixel == 0:
-        print " ",
+        print()
+    if pixel == 1:
+        print("█", end="")
     else:
-        print "#",
+        print(" ", end="")
