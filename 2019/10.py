@@ -36,14 +36,6 @@ data = [
     ".#....#.###..#..##.#.##...#.#..##",
 ]
 
-data1 = [
-    ".#..#",
-    ".....",
-    "#####",
-    "....#",
-    "...##",
-]
-
 asteroids = []
 
 
@@ -80,12 +72,12 @@ def dist(point1, point2):
 angles = {}
 for asteroid in asteroids:
     if station != asteroid:
-        rot = angle(station, asteroid)
-        if rot not in angles:
-            angles[rot] = asteroid
+        angle_ = angle(station, asteroid)
+        if angle_ not in angles:
+            angles[angle_] = asteroid
             continue
-        if dist(station, angles[rot]) > dist(station, asteroid):
-            angles[rot] = asteroid
+        if dist(station, angles[angle_]) > dist(station, asteroid):
+            angles[angle_] = asteroid
 
 
 key200 = sorted(angles.keys())[199]
