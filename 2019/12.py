@@ -41,13 +41,6 @@ data = [
     Planet(12, -4, -4),
 ]
 
-data1 = [
-    Planet(-1, 0, 2),
-    Planet(2, -10, -7),
-    Planet(4, -8, 8),
-    Planet(3, 5, -1),
-]
-
 for index in range(1000):
     for planet_a in data:
         for planet_b in data:
@@ -61,4 +54,58 @@ part1 = 0
 for planet in data:
     part1 += planet.energy()
 
-print(part1)
+################################################################################
+# Part 2
+################################################################################
+data = [
+    Planet(1, 3, -11),
+    Planet(17, -10, -8),
+    Planet(-1, -15, 2),
+    Planet(12, -4, -4),
+]
+
+
+def gcd(a, b):
+    while b > 0:
+        a, b = b, a % b
+    return a
+
+
+def lcm(a, b):
+    return (a * b) // gcd(a, b)
+
+
+visited_x = set()
+visited_y = set()
+visited_z = set()
+
+while True:
+    for planet_a in data:
+        for planet_b in data:
+            if planet_a != planet_b:
+                planet_a.update_velocity(planet_b)
+
+    hash_x = "|".join(
+        [str(planet.X) for planet in data] + [str(planet.vX) for planet in data]
+    )
+    hash_y = "|".join(
+        [str(planet.Y) for planet in data] + [str(planet.vY) for planet in data]
+    )
+    hash_z = "|".join(
+        [str(planet.Z) for planet in data] + [str(planet.vZ) for planet in data]
+    )
+
+    if hash_x in visited_x and hash_y in visited_y and hash_z in visited_z:
+        break
+    if hash_x not in visited_x:
+        visited_x.add(hash_x)
+    if hash_y not in visited_y:
+        visited_y.add(hash_y)
+    if hash_z not in visited_z:
+        visited_z.add(hash_z)
+
+    for planet in data:
+        planet.move()
+
+part2 = lcm(len(visited_x), lcm(len(visited_y), len(visited_z)))
+print(part1, part2)
